@@ -73,12 +73,15 @@ class Run extends AppModel {
 		//  HR/Pace (max, avg, min)
 
 		$km_to_miles=0.621371192;
-		$query = $this -> query ("SELECT SUM(km) as 'total_km' FROM runs");
+//		$filter = " WHERE run_type_id=1 or run_type_id=2 or run_type_id=3 or run_type_id=4 or run_type_id=6 or run_type_id=7 or run_type_id=0 or run_type_id IS NULL;";
+//		$filter = " WHERE run_type_id=9;";
+		$filter = "";
+		$query = $this -> query ("SELECT SUM(km) as 'total_km' FROM runs" . $filter);
 		$stats['TotalDistanceRun']['km'] = (int)$query[0][0]['total_km'];
 		$stats['TotalDistanceRun']['miles'] = (int)($stats['TotalDistanceRun']['km'] * $km_to_miles);
 
 //		$stats['TotalTime']['mm'] = $this -> query ("SELECT SUM(time_mm).SUM(time_ss) as 'total_time_mm','total_time_ss' from runs");
-		$query =  $this -> query ("SELECT SUM(time_mm),SUM(time_ss) from runs");
+		$query =  $this -> query ("SELECT SUM(time_mm),SUM(time_ss) from runs" .$filter);
 		$stats['TotalTime'] = $this -> convertTimes(
 			array(
 				's' => $query[0][0]['SUM(time_ss)'],
@@ -145,8 +148,10 @@ class Run extends AppModel {
 */
 
         public function getMinAvgMax ( $column = NULL ) {
-
-		$query = $this -> query ("SELECT MIN($column),MAX($column),AVG($column) FROM runs WHERE $column != 0");
+	
+//		$filter = " AND (run_type_id=1 or run_type_id=2 or run_type_id=3 or run_type_id=4 or run_type_id=6 or run_type_id=7 or run_type_id=0 or run_type_id IS NULL);";
+		$filter = "";
+		$query = $this -> query ("SELECT MIN($column),MAX($column),AVG($column) FROM runs WHERE $column != 0" .$filter);
 
 		$data['min'] = $query['0']['0']["MIN($column)"];
                 $data['avg'] = $query['0']['0']["AVG($column)"];

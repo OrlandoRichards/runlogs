@@ -9,18 +9,20 @@
 		<td> Total Time: </td><td> <?php echo h($stats['TotalTime']['string']); ?> </td>
 	</tr><tr>
 		<td> Pace: </td><td> <?php echo h($stats['pace']['string']) . " min/km"; ?>  </td>
-	</tr><tr>
-		<td> Pace: </td><td> <?php echo h($stats['pace']['string']) . " min/km"; ?>  </td>
         </tr><tr>
                 <td> Speed: </td><td> <?php echo h($stats['speed']['kph']['string']) . " km/h"; ?>  </td>
+<!--
         </tr><tr>
                 <td> Avg Heart Rate: </td><td> <?php echo h($stats['avg_heart_rate']['string']) . " bpm"; ?>  </td>
         </tr><tr>
                 <td> Max Heart Rate: </td><td> <?php echo h($stats['max_heart_rate']['string']) . " bpm"; ?>  </td>
+-->
         </tr><tr>
                 <td> 10k Time: </td><td> <?php echo h($stats['ten_k_time_mins']['string']) ; ?>  </td>
+<!--
         </tr><tr>
                 <td> kCal (watch): </td><td> <?php echo h($stats['kcal_watch']['string']) . " kCal"; ?>  </td>
+-->
         </tr><tr>
                 <td> kCal (Runkeeper): </td><td> <?php echo h($stats['kcal_runkeeper']['string']) . " kCal"; ?>  </td>
         </tr><tr>
@@ -29,9 +31,9 @@
                 <td> Final Sprint: </td><td> <?php echo h($stats['final_sprint_s']['string']) . " s"; ?>  </td>
         </tr><tr>
                 <td> 100m Sprint: </td><td> <?php echo h($stats['one_hundred_metre_sprint_s']['string']) . " s"; ?>  </td>
-        </tr><tr>
+        </tr> <!-- <tr>
                 <td> HR over Pace: </td><td> <?php echo h($stats['hr_over_pace']['string']) . ""; ?>  </td>
-
+	-->
 
 	</table>
 
