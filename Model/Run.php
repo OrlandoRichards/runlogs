@@ -168,7 +168,7 @@ class Run extends AppModel {
                 $time['s'] = (int)($time['s'] % 60);
 		$time['m'] = (int)($time['m'] % 60);
 		$time['h'] = (int)($time['h'] % 24);
-                $time['d'] = (int)($time['d'] % 1);
+                $time['d'] = (int)($time['d'] );
 
 		$time['string'] = '';
 		if ( $time['d'] > 0 ) {
