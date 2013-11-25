@@ -8,6 +8,9 @@
 	<tr>
 		<td> Total Time: </td><td> <?php echo h($stats['TotalTime']['string']); ?> </td>
 	</tr><tr>
+        <td> Distance: </td><td> <?php echo h($stats['distance']['string']) . " km"; ?> </td>
+            </tr><tr>
+
 		<td> Pace: </td><td> <?php echo h($stats['pace']['string']) . " min/km"; ?>  </td>
         </tr><tr>
                 <td> Speed: </td><td> <?php echo h($stats['speed']['kph']['string']) . " km/h"; ?>  </td>

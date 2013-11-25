@@ -90,6 +90,8 @@ class Run extends AppModel {
 				'd' => 0
 			));
 
+        $stats['distance'] = $this -> getMinAvgMax('km');
+
 		$stats['pace'] = $this -> getMinAvgMax('avg_pace_min_km');
 
 		$stats['speed']['kph'] = $this -> getMinAvgMax('avg_speed_kph');
@@ -151,7 +153,7 @@ class Run extends AppModel {
 	
 //		$filter = " AND (run_type_id=1 or run_type_id=2 or run_type_id=3 or run_type_id=4 or run_type_id=6 or run_type_id=7 or run_type_id=0 or run_type_id IS NULL);";
 		$filter = "";
-		$query = $this -> query ("SELECT MIN($column),MAX($column),AVG($column) FROM runs WHERE $column != 0" .$filter);
+		$query = $this -> query ("SELECT MIN($column),MAX($column),AVG($column) FROM runs WHERE $column != 0 AND id != 2" .$filter);
 
 		$data['min'] = $query['0']['0']["MIN($column)"];
                 $data['avg'] = $query['0']['0']["AVG($column)"];
